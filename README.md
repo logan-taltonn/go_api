@@ -32,5 +32,3 @@ Other Notes:
 
 Speedup:
 - Redis Caching -> 100x speedup of GET requests
-- Overall structure accomplishes 99% speedup compared to traditional methods (26ec on avg trad.)
-    - Rough Speedup Percentage = ((26000 - 2) / 26000) * 100 = (25998 / 26000) * 100 ≈ 99.992% ~~ 99% speedup
