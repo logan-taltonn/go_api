@@ -1,0 +1,36 @@
+TAMU Grade Distribution Local RESTful API
+
+Abilities: 
+- Search class sections by class type, and their grade distributions
+- Search class sections by professor, and their grade distributions
+- Allows user to specify time expiration of cache
+
+Features:
+- Redis context caching, decreasing GET query time down roughly 100x (ms)
+- Gorilla Mux routing for listening and serving clients
+- Neat JSON return formatting and error checking around every call
+
+Reqs To Run:
+- Have Go SQL installed -> go get -u github.com/go-sql-driver/mysql
+    - and running locally at port :3306
+- Have Gorilla Mux installed -> at terminal: go get github.com/gorilla/mux
+- Have Go Redis or Microsoft Redis installed -> *** look it up, installation depends greatly ***
+    - and running locally at port :6379
+- Have port :8000 free
+
+Limitations:
+- Currently only has Spring2023 distributions preloaded
+
+Other Notes:
+- to have the api function, you must have mysql server & redis server active
+- mysql startup -> net start mysql || Start-Service MySQL
+- enter mysql -> mysql -u logan -p OR mysql -p (at root level)
+- mysql shutdown -> mysqladmin -u root shutdown || Stop-Service MySQL
+- redis startup -> redis-server
+- redis shutdown -> redis-cli + SHUTDOWN
+- must have redis on for api to function -> drives query time down roughly 100x
+
+Speedup:
+- Redis Caching -> 100x speedup of GET requests
+- Overall structure accomplishes 99% speedup compared to traditional methods (26ec on avg trad.)
+    - Rough Speedup Percentage = ((26000 - 2) / 26000) * 100 = (25998 / 26000) * 100 ≈ 99.992% ~~ 99% speedup
