@@ -1,4 +1,4 @@
-TAMU Grade Distribution Local RESTful API
+# TAMU Grade Distribution Local RESTful API
 
 Abilities: 
 - Search class sections by class type, and their grade distributions
